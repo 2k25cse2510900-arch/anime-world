@@ -5,6 +5,7 @@
     const status = document.querySelector("[data-effect-status]");
     const fireball = document.querySelector("[data-fireball]");
     const portrait = document.querySelector("[data-itachi-portrait]");
+    const backgroundAudio = document.querySelector("[data-background-audio]");
     const loadedAssets = new Set();
     const pendingAssets = new Map();
     let effectVersion = 0;
@@ -20,6 +21,19 @@
     const soundPaths = { amaterasu: "sounds/fire.mp3", mangekyou: "sounds/sharingan.mp3", fireball: "sounds/explosion.mp3", entry: "sounds/itachi-entry.mp3", genjutsu: "sounds/genjutsu.mp3", susano: "sounds/susano.mp3" };
     const activeSound = document.querySelector("[data-ability-audio]");
     let effectTimer;
+
+    if (backgroundAudio) {
+        backgroundAudio.volume = 0.3;
+        const retryBackgroundAudio = () => {
+            document.removeEventListener("pointerdown", retryBackgroundAudio);
+            document.removeEventListener("keydown", retryBackgroundAudio);
+            backgroundAudio.play().catch(() => {});
+        };
+        backgroundAudio.play().catch(() => {
+            document.addEventListener("pointerdown", retryBackgroundAudio, { once: true });
+            document.addEventListener("keydown", retryBackgroundAudio, { once: true });
+        });
+    }
 
     function resetEffects() {
         window.clearTimeout(effectTimer);
