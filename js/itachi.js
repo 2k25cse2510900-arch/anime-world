@@ -13,8 +13,12 @@
         amaterasu: { className: "is-amaterasu", asset: "image/itachiblackflames.gif", message: "Amaterasu — the black flames rise and fade.", duration: 2900 },
         fireball: { className: "is-fireball", asset: "image/itachifireball.gif", message: "Fireball Jutsu — the fireball crosses the scene.", duration: 5520 },
         mangekyou: { className: "is-mangekyou", asset: "image/itachieye.gif", message: "Mangekyou Sharingan — the eye opens, then fades.", duration: 1000 },
-        entry: { className: "is-entry", asset: "image/itachimoon.gif", message: "Mangekyou Entry — the full moonlit GIF plays.", duration: 13260 }
+        entry: { className: "is-entry", asset: "image/itachimoon.gif", message: "Mangekyou Entry — the full moonlit GIF plays.", duration: 13260 },
+        genjutsu: { className: "is-genjutsu", asset: "image/genjutsu.gif", message: "Genjutsu visual activated.", duration: 5400 },
+        susano: { className: "is-susano", asset: "image/susano.gif", message: "Susano visual activated.", duration: 5400 }
     };
+    const soundPaths = { amaterasu: "sounds/fire.mp3", mangekyou: "sounds/sharingan.mp3", fireball: "sounds/explosion.mp3", entry: "sounds/itachi-entry.mp3", genjutsu: "sounds/genjutsu.mp3", susano: "sounds/susano.mp3" };
+    const activeSound = document.querySelector("[data-ability-audio]");
     let effectTimer;
 
     function resetEffects() {
@@ -23,6 +27,15 @@
         Object.values(abilities).forEach(({ className }) => page.classList.remove(className));
         page.classList.remove("is-effect-active", "is-effect-ready");
         document.querySelector('[data-ability="mangekyou"]')?.setAttribute("aria-pressed", "false");
+    }
+
+    function playSound(name) {
+        if (!activeSound) return;
+        activeSound.pause();
+        activeSound.currentTime = 0;
+        activeSound.src = soundPaths[name];
+        activeSound.volume = 0.45;
+        activeSound.play().catch(() => {});
     }
 
     function waitForAsset(asset, callback) {
@@ -55,6 +68,7 @@
         if (!effect) return;
 
         resetEffects();
+        playSound(name);
         const thisEffectVersion = effectVersion;
         // Commit the reset before adding the class so the same effect can replay immediately.
         void page.offsetWidth;
@@ -89,13 +103,15 @@
             effectTimer = window.setTimeout(finishEffect, effect.duration);
         }
 
-        waitForAsset(effect.asset, () => {
+        const startEffect = () => {
             if (thisEffectVersion !== effectVersion) return;
             page.classList.add("is-effect-ready");
             if (name !== "mangekyou") {
                 effectTimer = window.setTimeout(finishEffect, effect.duration);
             }
-        });
+        };
+        if (effect.asset) waitForAsset(effect.asset, startEffect);
+        else startEffect();
     }
 
     document.querySelectorAll("[data-ability]").forEach((button) => {

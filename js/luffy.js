@@ -7,6 +7,20 @@
     const page = document.querySelector(".luffy-page");
     const main = document.querySelector(".luffy-main");
     const gearButton = document.querySelector("[data-gear-trigger]");
+    const backgroundAudio = document.querySelector("[data-luffy-audio]");
+
+    if (backgroundAudio) {
+        backgroundAudio.volume = 0.35;
+        const startBackgroundAudio = () => {
+            backgroundAudio.play().then(() => {
+                window.removeEventListener("pointerdown", startBackgroundAudio);
+                window.removeEventListener("keydown", startBackgroundAudio);
+            }).catch(() => {});
+        };
+        startBackgroundAudio();
+        window.addEventListener("pointerdown", startBackgroundAudio);
+        window.addEventListener("keydown", startBackgroundAudio);
+    }
 
     if (!stage || !hotspot || !armOverlay) return;
 

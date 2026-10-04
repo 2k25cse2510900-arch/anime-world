@@ -122,6 +122,16 @@
 .sharingon-center { fill: #d83247; stroke: #f1a3aa; stroke-width: 2; }
 .sharingon-tomoe { fill: #d83247; stroke: #f1a3aa; stroke-width: 1.4; }
 .mangekyou-aura { position: fixed; z-index: -1; inset: 0; background-image: linear-gradient(rgb(4 6 14 / 18%), rgb(4 6 14 / 18%)), url("image/itachieye.gif"); background-position: center; background-repeat: no-repeat; background-size: 100% 100%, cover; opacity: 0; visibility: hidden; filter: brightness(.62) saturate(.82) contrast(.94); pointer-events: none; transition: opacity 650ms ease, visibility 0s linear 650ms; }
+.new-ability-visual { position: fixed; z-index: -1; inset: 0; overflow: hidden; visibility: hidden; opacity: 0; pointer-events: none; }
+.new-ability-visual img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.genjutsu-visual { background: radial-gradient(ellipse at 50% 50%, rgb(82 0 18 / 8%), rgb(7 0 14 / 72%)); }
+.genjutsu-visual span { position: absolute; top: 50%; left: 50%; width: min(110vw, 110vh); aspect-ratio: 1; border: 1px solid rgb(212 26 58 / 54%); border-radius: 50%; box-shadow: 0 0 50px rgb(137 4 38 / 32%), inset 0 0 50px rgb(137 4 38 / 24%); transform: translate(-50%, -50%) scale(.05); }
+.genjutsu-visual span:nth-child(2) { width: min(75vw, 75vh); border-color: rgb(225 178 183 / 44%); }
+.genjutsu-visual span:nth-child(3) { width: min(42vw, 42vh); border-style: dashed; border-color: rgb(212 26 58 / 72%); }
+.susano-visual { background: radial-gradient(ellipse at 52% 74%, rgb(255 111 24 / 34%), transparent 25%), radial-gradient(ellipse at 50% 55%, rgb(112 25 13 / 34%), rgb(4 3 8 / 52%) 60%, transparent 100%); }
+.susano-halo { position: absolute; top: 50%; left: 50%; width: min(84vw, 90vh); height: min(100vw, 100vh); border: 3px solid rgb(255 142 50 / 48%); border-radius: 48% 48% 42% 42%; box-shadow: 0 0 32px #f36b255c, inset 0 0 56px #ff8a2738; transform: translate(-50%, -43%); }
+.susano-ribs { position: absolute; left: 50%; bottom: -25%; width: min(78vw, 760px); height: 105vh; border: 22px double rgb(255 142 50 / 48%); border-radius: 50% 50% 12% 12% / 32% 32% 12% 12%; box-shadow: 0 0 50px #f36b255c, inset 0 0 50px #ff8a2738; transform: translateX(-50%); clip-path: polygon(0 0,100% 0,100% 100%,0 100%); }
+.susano-core { position: absolute; top: 28%; left: 50%; width: min(16vw, 190px); aspect-ratio: .72; border-radius: 48% 48% 30% 30%; background: linear-gradient(180deg, #ffd28a, #e8521f 48%, #641b21); box-shadow: 0 0 38px #ff8a66, 0 0 100px #fb531e88; transform: translateX(-50%); clip-path: polygon(50% 0,72% 19%,100% 38%,76% 48%,91% 100%,9% 100%,24% 48%,0 38%,28% 19%); }
 .entry-spotlight { background: radial-gradient(ellipse at 68% 40%, rgb(187 28 49 / 25%), transparent 24%), linear-gradient(0deg, rgb(0 0 0 / 32%), transparent 44%, rgb(0 0 0 / 45%)); }
 .itachi-screen-pulse { background: radial-gradient(ellipse at center, transparent 35%, rgb(170 12 30 / 48%) 100%); }
 
@@ -133,6 +143,9 @@
 .itachi-page.is-fireball.is-effect-ready .fireball-effect { animation: fireball-cross 5.52s cubic-bezier(.2,.7,.15,1) both; }
 .itachi-page.is-mangekyou .mangekyou-aura { opacity: .48; visibility: visible; transition: none; animation: mangekyou-once 1s ease-out both; }
 .itachi-page.is-mangekyou .sharingan-symbol { display: none; }
+.itachi-page.is-genjutsu .genjutsu-visual, .itachi-page.is-susano .susano-visual { visibility: visible; opacity: 1; }
+.itachi-page.is-genjutsu .genjutsu-visual { animation: genjutsu-arrive 5.4s ease-out both; }
+.itachi-page.is-susano .susano-visual { animation: susano-arrive 5.4s ease-out both; }
 .itachi-page.is-entry .itachi-vignette { opacity: 1; animation: vignette-in 3.1s ease-in-out both; }
 .itachi-page.is-entry .entry-spotlight { opacity: 1; animation: spotlight-in 3.1s ease-in-out both; }
 .itachi-page.is-entry .sharingan-symbol { top: 39%; left: 66%; width: clamp(68px, 11vw, 128px); animation: entry-eye 3.1s ease-in-out both; }
@@ -151,6 +164,10 @@
 @keyframes entry-eye { 0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(.4) rotate(-30deg); } 32%, 70% { opacity: .93; transform: translate(-50%, -50%) scale(1) rotate(0); } }
 @keyframes portrait-arrive { 0%, 100% { filter: drop-shadow(0 25px 55px rgb(0 0 0 / 68%)); } 30% { filter: drop-shadow(0 0 40px rgb(211 35 61 / 64%)); } }
 @keyframes subtle-shake { 0%, 100% { transform: translateX(0); } 30% { transform: translateX(-2px); } 70% { transform: translateX(2px); } }
+@keyframes genjutsu-wave { 0% { opacity: 0; transform: translate(-50%, -50%) scale(.05) rotate(0); } 20% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -50%) scale(1.35) rotate(90deg); } }
+@keyframes genjutsu-arrive { 0%, 100% { opacity: 0; } 14%, 84% { opacity: 1; } }
+@keyframes susano-arrive { 0%, 100% { opacity: 0; } 18%, 80% { opacity: 1; } }
+@keyframes susano-core { 0%, 100% { opacity: 0; transform: translateX(-50%) scale(.2); } 25%, 78% { opacity: 1; transform: translateX(-50%) scale(1); } }
 
 @media (max-width: 700px) {
     .itachi-hero { align-items: flex-end; min-height: 690px; min-height: min(760px, calc(100svh - 62px)); padding: 2rem 1.25rem 3.8rem; }
@@ -179,7 +196,7 @@
 @media (prefers-reduced-motion: reduce) {
     .itachi-backdrop, .itachi-ability, .amaterasu-flame, .amaterasu-embers,
     .itachi-screen-pulse, .fireball-effect, .mangekyou-aura, .sharingan-symbol,
-    .itachi-vignette, .entry-spotlight, .itachi-portrait-wrap, .itachi-main {
+    .itachi-vignette, .entry-spotlight, .itachi-portrait-wrap, .itachi-main, .new-ability-visual {
         animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;

@@ -5,10 +5,12 @@
     const status = document.querySelector("[data-hinata-status]");
     const portrait = document.querySelector("[data-hinata-portrait]");
     const byakuganButton = document.querySelector('[data-hinata-action="byakugan"]');
+    const byakuganAudio = document.querySelector("[data-byakugan-audio]");
     const petalsMessage = "A quiet moment — petals drift across the scene.";
     const byakuganMessage = "Byakugan mode active — returning to normal in 2 seconds.";
     let petalsTimer;
     let byakuganTimer;
+    let byakuganAudioTimer;
 
     function updateEffectLayer() {
         const active = page.classList.contains("is-byakugan") || page.classList.contains("is-petals");
@@ -17,6 +19,17 @@
 
     function activateByakugan() {
         window.clearTimeout(byakuganTimer);
+        window.clearTimeout(byakuganAudioTimer);
+        if (byakuganAudio) {
+            byakuganAudio.pause();
+            byakuganAudio.currentTime = 0;
+            byakuganAudio.volume = 0.45;
+            byakuganAudio.play().catch(() => {});
+            byakuganAudioTimer = window.setTimeout(() => {
+                byakuganAudio.pause();
+                byakuganAudio.currentTime = 0;
+            }, 2000);
+        }
         page.classList.remove("is-byakugan");
         // Restart the existing Byakugan transitions when activated again.
         void page.offsetWidth;
@@ -26,6 +39,10 @@
         if (status) status.textContent = byakuganMessage;
 
         byakuganTimer = window.setTimeout(() => {
+            if (byakuganAudio) {
+                byakuganAudio.pause();
+                byakuganAudio.currentTime = 0;
+            }
             page.classList.remove("is-byakugan");
             byakuganButton?.setAttribute("aria-pressed", "false");
             updateEffectLayer();
