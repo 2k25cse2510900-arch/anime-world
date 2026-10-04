@@ -96,8 +96,8 @@
 .itachi-effect-status { min-height: 1.4em; margin: .9rem 0 0; color: #e0b8bd; font-size: .82rem; }
 
 .itachi-perspective { padding: 0 0 clamp(3rem, 8vw, 7rem); }
-.itachi-reflections { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid rgb(255 255 255 / 16%); border-bottom: 1px solid rgb(255 255 255 / 16%); }
-.itachi-reflection { min-height: 220px; padding: 1.8rem clamp(1rem, 2vw, 1.8rem) 2rem; background: rgb(10 10 15 / 65%); }
+.itachi-reflections { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; border-top: 1px solid rgb(255 255 255 / 16%); border-bottom: 1px solid rgb(255 255 255 / 16%); }
+.itachi-reflection { min-width: 0; min-height: 0; padding: clamp(1.25rem, 2.5vw, 1.8rem) clamp(.9rem, 2vw, 1.8rem) clamp(1.35rem, 2.5vw, 2rem); overflow-wrap: anywhere; background: rgb(10 10 15 / 65%); }
 .itachi-reflection + .itachi-reflection { border-left: 1px solid rgb(255 255 255 / 13%); }
 .itachi-reflection h3 { margin: .2rem 0 1rem; font-family: Georgia, "Times New Roman", serif; font-size: 1.45rem; font-weight: 400; }
 .itachi-reflection h4 { margin: -.55rem 0 1rem; color: #d9959e; font-size: .76rem; font-weight: 600; letter-spacing: .06em; }
