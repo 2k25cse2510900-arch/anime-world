@@ -11,7 +11,9 @@
     <script src="js/luffy.js" defer></script>
 </head>
 <body class="luffy-page">
-    <audio data-luffy-audio src="sounds/luffy.mp3" preload="auto" loop autoplay></audio>
+    <audio data-luffy-audio src="sounds/luffy.mp3" preload="auto"></audio>
+    <audio data-luffy-laugh src="sounds/luffy-laugh.mp3" preload="auto"></audio>
+    <audio data-punch-audio src="sounds/luffy-punch.mp3" preload="none"></audio>
     <img class="gear-backdrop" src="image/luffy_gear5.gif" alt="" aria-hidden="true" fetchpriority="high">
     <div class="gear-shade" aria-hidden="true"></div>
     <div class="gear-clouds" aria-hidden="true"></div>
@@ -27,8 +29,8 @@
     <main id="main-content" class="luffy-main">
         <section class="luffy-stage" data-arm-stage aria-label="Luffy Gear 5 scene">
             <img class="luffy-foreground" src="image/Luffy.png" alt="Monkey D. Luffy smiling with his hands together" width="670" height="1191" fetchpriority="high">
-            <button class="arm-hotspot" type="button" data-arm-hotspot aria-label="Stretch Luffy's rubber arm. Drag to reach, or tap for a stretch.">
-                <span class="sr-only">Stretch Luffy's arm</span>
+            <button class="arm-hotspot" type="button" data-arm-hotspot aria-label="Click to trigger Luffy's stretching punch.">
+                <span class="sr-only">Luffy stretching punch</span>
             </button>
         </section>
 
@@ -58,16 +60,27 @@
         </div>
 
         <svg class="arm-overlay" data-arm-overlay aria-hidden="true" focusable="false">
+            <path class="arm-trail arm-trail-one" data-arm-trail></path>
+            <path class="arm-trail arm-trail-two" data-arm-trail></path>
+            <path class="arm-trail arm-trail-three" data-arm-trail></path>
             <path class="arm-outline" data-overlay-outline></path>
             <path class="arm-sleeve" data-overlay-sleeve></path>
             <path class="arm-skin" data-overlay-skin></path>
             <path class="arm-cuff-outline" data-overlay-cuff-outline></path>
             <path class="arm-cuff" data-overlay-cuff></path>
-            <circle class="arm-root" data-overlay-root r="21"></circle>
             <g class="arm-fist" data-overlay-fist>
                 <path class="fist-outline" d="M-12 -18 Q-4 -26 8 -22 L31 -20 Q43 -18 50 -7 L56 1 Q52 8 45 7 Q44 18 34 17 Q28 24 18 18 Q10 22 2 13 L-12 8 Z"></path>
                 <path class="fist-detail" d="M7 -11 Q15 -15 23 -12 M15 -3 Q25 -7 34 -3 M19 6 Q27 3 35 6"></path>
                 <path class="fist-thumb" d="M-5 3 Q4 -4 12 2 L19 11 Q16 18 9 15 L-1 10 Z"></path>
+            </g>
+            <g class="impact-effect" data-impact-effect aria-hidden="true">
+                <circle class="impact-ring" data-impact-ring r="8"></circle>
+                <circle class="impact-spark" data-impact-spark r="4"></circle>
+                <circle class="impact-spark" data-impact-spark r="3"></circle>
+                <circle class="impact-spark" data-impact-spark r="3.5"></circle>
+                <circle class="impact-spark" data-impact-spark r="2.5"></circle>
+                <circle class="impact-spark" data-impact-spark r="3"></circle>
+                <circle class="impact-spark" data-impact-spark r="2.5"></circle>
             </g>
         </svg>
     </main>

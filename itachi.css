@@ -141,7 +141,7 @@
 .itachi-page.is-amaterasu .itachi-screen-pulse { opacity: 1; animation: screen-pulse 2.8s ease-out both; }
 .itachi-page.is-fireball .fireball-effect { visibility: visible; }
 .itachi-page.is-fireball.is-effect-ready .fireball-effect { animation: fireball-cross 5.52s cubic-bezier(.2,.7,.15,1) both; }
-.itachi-page.is-mangekyou .mangekyou-aura { opacity: .48; visibility: visible; transition: none; animation: mangekyou-once 1s ease-out both; }
+.itachi-page.is-mangekyou .mangekyou-aura { opacity: .48; visibility: visible; transition: none; animation: mangekyou-once 3s ease-out both; }
 .itachi-page.is-mangekyou .sharingan-symbol { display: none; }
 .itachi-page.is-genjutsu .genjutsu-visual, .itachi-page.is-susano .susano-visual { visibility: visible; opacity: 1; }
 .itachi-page.is-genjutsu .genjutsu-visual { animation: genjutsu-arrive 5.4s ease-out both; }

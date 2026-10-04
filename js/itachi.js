@@ -12,7 +12,7 @@
     const abilities = {
         amaterasu: { className: "is-amaterasu", asset: "image/itachiblackflames.gif", message: "Amaterasu — the black flames rise and fade.", duration: 2900 },
         fireball: { className: "is-fireball", asset: "image/itachifireball.gif", message: "Fireball Jutsu — the fireball crosses the scene.", duration: 5520 },
-        mangekyou: { className: "is-mangekyou", asset: "image/itachieye.gif", message: "Mangekyou Sharingan — the eye opens, then fades.", duration: 1000 },
+        mangekyou: { className: "is-mangekyou", asset: "image/itachieye.gif", message: "Mangekyou Sharingan — the eye opens, then fades.", duration: 3000 },
         entry: { className: "is-entry", asset: "image/itachimoon.gif", message: "Mangekyou Entry — the full moonlit GIF plays.", duration: 13260 },
         genjutsu: { className: "is-genjutsu", asset: "image/genjutsu.gif", message: "Genjutsu visual activated.", duration: 5400 },
         susano: { className: "is-susano", asset: "image/susano.gif", message: "Susano visual activated.", duration: 5400 }
@@ -96,9 +96,13 @@
         const finishEffect = () => {
             if (thisEffectVersion !== effectVersion) return;
             resetEffects();
+            if (name === "mangekyou" && activeSound) {
+                activeSound.pause();
+                activeSound.currentTime = 0;
+            }
             if (status) status.textContent = "";
         };
-        // Start Sharingan's one-second display interval at the click, not after image loading.
+        // Start Sharingan's three-second display interval at the click, not after image loading.
         if (name === "mangekyou") {
             effectTimer = window.setTimeout(finishEffect, effect.duration);
         }
