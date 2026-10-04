@@ -1,0 +1,189 @@
+.itachi-page {
+    --itachi-background-image: url("image/itachiback.jpg");
+    --itachi-red: #b51f34;
+    --itachi-ink: #09090d;
+    position: relative;
+    min-height: 100vh;
+    color: #f3f0ef;
+    background: var(--itachi-ink);
+    isolation: isolate;
+}
+
+.itachi-page.is-entry {
+    --itachi-background-image: url("image/itachimoon.gif");
+}
+
+.itachi-backdrop {
+    position: fixed;
+    z-index: -2;
+    inset: 0;
+    background-image: linear-gradient(90deg, rgb(8 8 12 / 92%) 0%, rgb(8 8 12 / 65%) 46%, rgb(8 8 12 / 75%) 100%), var(--itachi-background-image);
+    background-position: center, 62% 28%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: scale(1.025);
+    animation: itachi-atmosphere 24s ease-in-out infinite alternate;
+}
+
+.itachi-page.is-entry .itachi-backdrop {
+    background-image: linear-gradient(90deg, rgb(8 8 12 / 43%) 0%, rgb(8 8 12 / 24%) 46%, rgb(8 8 12 / 35%) 100%), var(--itachi-background-image);
+    filter: brightness(1.35) contrast(1.08);
+}
+
+.itachi-page.is-entry .itachi-vignette { background: radial-gradient(ellipse at center, transparent 42%, rgb(0 0 0 / 38%) 100%); }
+.itachi-page.is-entry .entry-spotlight { background: radial-gradient(ellipse at 68% 40%, rgb(187 28 49 / 22%), transparent 24%), linear-gradient(0deg, rgb(0 0 0 / 14%), transparent 44%, rgb(0 0 0 / 20%)); }
+
+.itachi-header {
+    position: relative;
+    z-index: 3;
+    background: linear-gradient(180deg, rgb(6 6 10 / 75%), transparent);
+}
+
+.itachi-main { position: relative; overflow: clip; }
+.itachi-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(1rem, 5vw, 5rem);
+    min-height: min(790px, calc(100svh - 72px));
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: clamp(2rem, 5vw, 5rem) clamp(1.25rem, 6vw, 5rem);
+}
+
+.itachi-hero-copy { z-index: 1; width: min(52%, 580px); padding-bottom: 2rem; }
+.itachi-eyebrow { margin: 0 0 .85rem; color: #d798a0; font-size: .72rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+.itachi-hero h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(4.5rem, 10vw, 8.5rem); font-weight: 500; letter-spacing: -.075em; line-height: .84; text-shadow: 0 5px 30px rgb(0 0 0 / 60%); }
+.itachi-hero h1 span { color: #d9d2d0; }
+.itachi-core { display: flex; align-items: baseline; gap: 1rem; margin: 2.4rem 0 2.2rem; }
+.itachi-core span { color: #c3b9ba; font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; }
+.itachi-core strong { color: #f0d9dc; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.5rem, 2.6vw, 2.2rem); font-weight: 400; }
+.itachi-scroll-link, .itachi-back a { color: #eee8e8; text-decoration-color: rgb(214 97 113 / 75%); text-underline-offset: .45em; }
+.itachi-scroll-link { display: inline-flex; align-items: center; gap: 1rem; padding: .7rem 0; font-size: .9rem; }
+.itachi-scroll-link span { color: #dc7180; font-size: 1.2rem; }
+
+.itachi-portrait-wrap { align-self: stretch; display: flex; align-items: center; justify-content: center; width: min(47%, 510px); margin: 0; }
+.itachi-portrait { display: block; width: min(100%, 410px); max-height: min(690px, 82svh); object-fit: contain; filter: drop-shadow(0 25px 55px rgb(0 0 0 / 68%)); }
+.itachi-mark { position: absolute; right: clamp(1rem, 3vw, 3rem); bottom: 1.4rem; margin: 0; color: rgb(237 225 225 / 16%); font-family: serif; font-size: clamp(1.5rem, 3vw, 2.3rem); writing-mode: vertical-rl; }
+
+.itachi-abilities, .itachi-perspective { width: min(1080px, calc(100% - 2.5rem)); margin: 0 auto; }
+.itachi-abilities { padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(4rem, 9vw, 8rem); border-top: 1px solid rgb(255 255 255 / 13%); }
+.itachi-section-heading { margin-bottom: 2rem; }
+.itachi-section-heading h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 5vw, 3.7rem); font-weight: 400; letter-spacing: -.035em; }
+.itachi-ability-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
+.itachi-ability {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 88px;
+    padding: 1rem 1.15rem;
+    border: 1px solid rgb(255 255 255 / 13%);
+    border-radius: 3px;
+    background: rgb(11 11 16 / 74%);
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+.itachi-ability:hover { transform: translateY(-2px); border-color: rgb(202 89 105 / 75%); background: rgb(30 16 21 / 87%); }
+.itachi-ability:focus-visible { outline: 3px solid #f1a1ac; outline-offset: 3px; }
+.ability-number { align-self: flex-start; padding-top: .18rem; color: #c66a77; font-size: .72rem; letter-spacing: .12em; }
+.ability-copy { display: grid; gap: .35rem; flex: 1; }
+.ability-copy strong { font-family: Georgia, "Times New Roman", serif; font-size: 1.18rem; font-weight: 400; }
+.ability-copy small { color: #bcb5b6; font-size: .82rem; line-height: 1.5; }
+.ability-arrow { color: #dc7180; font-size: 1.15rem; }
+.itachi-effect-status { min-height: 1.4em; margin: .9rem 0 0; color: #e0b8bd; font-size: .82rem; }
+
+.itachi-perspective { padding: 0 0 clamp(3rem, 8vw, 7rem); }
+.itachi-reflections { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid rgb(255 255 255 / 16%); border-bottom: 1px solid rgb(255 255 255 / 16%); }
+.itachi-reflection { min-height: 220px; padding: 1.8rem clamp(1rem, 2vw, 1.8rem) 2rem; background: rgb(10 10 15 / 65%); }
+.itachi-reflection + .itachi-reflection { border-left: 1px solid rgb(255 255 255 / 13%); }
+.itachi-reflection h3 { margin: .2rem 0 1rem; font-family: Georgia, "Times New Roman", serif; font-size: 1.45rem; font-weight: 400; }
+.itachi-reflection h4 { margin: -.55rem 0 1rem; color: #d9959e; font-size: .76rem; font-weight: 600; letter-spacing: .06em; }
+.itachi-reflection p:not(.itachi-eyebrow) { margin: 0; color: #d0c9ca; font-size: .95rem; line-height: 1.75; }
+.itachi-reflection p + p { margin-top: .8rem !important; }
+.itachi-reflection .itachi-unwritten { color: #aaa1a2 !important; font-size: .85rem !important; font-style: italic; }
+.itachi-back { width: min(1080px, calc(100% - 2.5rem)); margin: 0 auto; padding-bottom: 2.5rem; }
+.itachi-footer { position: relative; background: rgb(6 6 10 / 78%); }
+
+.itachi-effects { position: fixed; z-index: 8; inset: 0; overflow: hidden; pointer-events: none; visibility: hidden; }
+.itachi-vignette, .entry-spotlight, .itachi-screen-pulse { position: absolute; inset: 0; opacity: 0; }
+.itachi-vignette { background: radial-gradient(ellipse at center, transparent 22%, rgb(0 0 0 / 84%) 100%); transition: opacity 250ms; }
+.amaterasu-effect { position: absolute; inset: 0; overflow: hidden; opacity: 0; background-position: center; background-repeat: no-repeat; background-size: cover; transition: opacity 250ms; }
+.amaterasu-flame { position: absolute; bottom: -28%; width: 19vw; min-width: 110px; height: 77vh; transform-origin: bottom center; background: linear-gradient(0deg, #040407 0%, #08080d 62%, #21080e 100%); clip-path: polygon(50% 100%, 5% 79%, 26% 78%, 10% 59%, 34% 66%, 25% 37%, 46% 56%, 54% 0, 66% 50%, 88% 24%, 76% 65%, 100% 55%, 76% 82%, 97% 89%); filter: drop-shadow(0 0 18px rgb(170 8 32 / 60%)); animation: flame-rise 2.1s cubic-bezier(.2,.8,.25,1) both; }
+.flame-one { left: -3%; animation-delay: 0s; }.flame-two { left: 13%; height: 67vh; animation-delay: .08s; }.flame-three { left: 31%; height: 81vh; animation-delay: .02s; }.flame-four { right: 27%; height: 70vh; animation-delay: .1s; }.flame-five { right: 10%; height: 85vh; animation-delay: .04s; }.flame-six { right: -4%; height: 68vh; animation-delay: .14s; }
+.amaterasu-embers { position: absolute; inset: 0; opacity: .7; background-image: radial-gradient(circle, #d63b43 0 1px, transparent 2px), radial-gradient(circle, #9e202c 0 1px, transparent 2px); background-position: 7% 79%, 88% 82%; background-size: 117px 143px, 163px 191px; animation: ember-drift 1.8s ease-out both; }
+.fireball-effect { position: fixed; z-index: -1; top: 0; left: 0; width: 100vw; height: 100vh; height: 100dvh; opacity: 0; visibility: hidden; overflow: hidden; pointer-events: none; }
+.itachi-fireball-gif { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(.9); }
+.sharingan-symbol { position: absolute; top: 50%; left: 50%; width: min(70vw, 540px); height: auto; overflow: visible; fill: none; transform: translate(-50%, -50%) scale(.78) rotate(-22deg); opacity: 0; }
+.sharingon-outer { stroke: #c41f37; stroke-width: 3; filter: drop-shadow(0 0 15px rgb(226 26 54 / 75%)); }
+.sharingon-ring { stroke: rgb(218 45 63 / 76%); stroke-width: 2; }
+.sharingon-center { fill: #d83247; stroke: #f1a3aa; stroke-width: 2; }
+.sharingon-tomoe { fill: #d83247; stroke: #f1a3aa; stroke-width: 1.4; }
+.mangekyou-aura { position: fixed; z-index: -1; inset: 0; background-image: linear-gradient(rgb(4 6 14 / 18%), rgb(4 6 14 / 18%)), url("image/itachieye.gif"); background-position: center; background-repeat: no-repeat; background-size: 100% 100%, cover; opacity: 0; visibility: hidden; filter: brightness(.62) saturate(.82) contrast(.94); pointer-events: none; transition: opacity 650ms ease, visibility 0s linear 650ms; }
+.entry-spotlight { background: radial-gradient(ellipse at 68% 40%, rgb(187 28 49 / 25%), transparent 24%), linear-gradient(0deg, rgb(0 0 0 / 32%), transparent 44%, rgb(0 0 0 / 45%)); }
+.itachi-screen-pulse { background: radial-gradient(ellipse at center, transparent 35%, rgb(170 12 30 / 48%) 100%); }
+
+.itachi-page.is-effect-active .itachi-effects { visibility: visible; }
+.itachi-page.is-amaterasu .amaterasu-effect { opacity: 1; background-image: url("image/itachiblackflames.gif"); filter: brightness(1.4) contrast(1.12); }
+.itachi-page.is-amaterasu .amaterasu-flame, .itachi-page.is-amaterasu .amaterasu-embers { display: none; }
+.itachi-page.is-amaterasu .itachi-screen-pulse { opacity: 1; animation: screen-pulse 2.8s ease-out both; }
+.itachi-page.is-fireball .fireball-effect { visibility: visible; }
+.itachi-page.is-fireball.is-effect-ready .fireball-effect { animation: fireball-cross 5.52s cubic-bezier(.2,.7,.15,1) both; }
+.itachi-page.is-mangekyou .mangekyou-aura { opacity: .48; visibility: visible; transition: none; animation: mangekyou-once 1s ease-out both; }
+.itachi-page.is-mangekyou .sharingan-symbol { display: none; }
+.itachi-page.is-entry .itachi-vignette { opacity: 1; animation: vignette-in 3.1s ease-in-out both; }
+.itachi-page.is-entry .entry-spotlight { opacity: 1; animation: spotlight-in 3.1s ease-in-out both; }
+.itachi-page.is-entry .sharingan-symbol { top: 39%; left: 66%; width: clamp(68px, 11vw, 128px); animation: entry-eye 3.1s ease-in-out both; }
+.itachi-page.is-entry [data-itachi-portrait] { animation: portrait-arrive 3.1s ease-out both; }
+.itachi-page.is-effect-active .itachi-main { animation: subtle-shake 350ms ease-in-out 2; }
+
+@keyframes itachi-atmosphere { to { background-position: center, 58% 32%; transform: scale(1.065); } }
+@keyframes flame-rise { 0% { transform: scaleY(.05) translateY(20%); opacity: 0; } 34% { opacity: 1; } 100% { transform: scaleY(1) translateY(0); opacity: 1; } }
+@keyframes ember-drift { 0% { opacity: 0; transform: translateY(5%); } 30% { opacity: .75; } 100% { opacity: .25; transform: translateY(-3%); } }
+@keyframes screen-pulse { 0% { opacity: .75; } 28% { opacity: .12; } 60% { opacity: .48; } 100% { opacity: 0; } }
+@keyframes mangekyou-once { 0% { opacity: 0; } 15%, 78% { opacity: .48; } 100% { opacity: 0; } }
+@keyframes fireball-cross { 0% { opacity: 0; } 14% { opacity: .9; } 78% { opacity: .88; } 100% { opacity: 0; } }
+@keyframes sharingan-reveal { 0% { opacity: 0; transform: translate(-50%, -50%) scale(.45) rotate(-22deg); } 23% { opacity: .92; transform: translate(-50%, -50%) scale(1) rotate(0); } 72% { opacity: .86; transform: translate(-50%, -50%) scale(1.04) rotate(5deg); } 100% { opacity: 0; transform: translate(-50%, -50%) scale(1.12) rotate(9deg); } }
+@keyframes vignette-in { 0%, 100% { opacity: 0; } 22%, 77% { opacity: 1; } }
+@keyframes spotlight-in { 0%, 100% { opacity: 0; } 23%, 75% { opacity: 1; } }
+@keyframes entry-eye { 0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(.4) rotate(-30deg); } 32%, 70% { opacity: .93; transform: translate(-50%, -50%) scale(1) rotate(0); } }
+@keyframes portrait-arrive { 0%, 100% { filter: drop-shadow(0 25px 55px rgb(0 0 0 / 68%)); } 30% { filter: drop-shadow(0 0 40px rgb(211 35 61 / 64%)); } }
+@keyframes subtle-shake { 0%, 100% { transform: translateX(0); } 30% { transform: translateX(-2px); } 70% { transform: translateX(2px); } }
+
+@media (max-width: 700px) {
+    .itachi-hero { align-items: flex-end; min-height: 690px; min-height: min(760px, calc(100svh - 62px)); padding: 2rem 1.25rem 3.8rem; }
+    .itachi-hero-copy { width: 100%; padding: 0 0 1rem; }
+    .itachi-hero h1 { font-size: clamp(4.2rem, 17vw, 7rem); }
+    .itachi-portrait-wrap { position: absolute; inset: 0 0 0 auto; width: 78%; opacity: .76; mask-image: linear-gradient(90deg, transparent 0%, #000 39%, #000 100%); }
+    .itachi-portrait { width: 100%; max-height: 88%; object-position: center; }
+    .itachi-core, .itachi-scroll-link { position: relative; z-index: 1; }
+    .itachi-core { margin: 1.7rem 0 1rem; }
+    .itachi-abilities, .itachi-perspective { width: calc(100% - 2rem); }
+    .itachi-ability-list { grid-template-columns: 1fr; gap: .65rem; }
+    .itachi-ability { min-height: 76px; padding: .9rem; }
+    .itachi-reflections { grid-template-columns: 1fr; }
+    .itachi-reflection { min-height: auto; padding: 1.4rem 1rem 1.6rem; }
+    .itachi-reflection + .itachi-reflection { border-top: 1px solid rgb(255 255 255 / 13%); border-left: 0; }
+    .itachi-mark { display: none; }
+}
+
+@media (max-width: 390px) {
+    .itachi-hero { min-height: 650px; }
+    .itachi-portrait-wrap { width: 88%; opacity: .64; }
+    .itachi-hero h1 { font-size: 4rem; }
+    .ability-copy strong { font-size: 1.05rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .itachi-backdrop, .itachi-ability, .amaterasu-flame, .amaterasu-embers,
+    .itachi-screen-pulse, .fireball-effect, .mangekyou-aura, .sharingan-symbol,
+    .itachi-vignette, .entry-spotlight, .itachi-portrait-wrap, .itachi-main {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+    .mangekyou-aura { transition-duration: .01ms !important; }
+    .itachi-ability:hover { transform: none; }
+}

@@ -1,42 +1,25 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-    <title>Anime World</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Meet the anime characters whose stories matter to you.">
+    <title>Characters | Anime World</title>
     <link rel="stylesheet" href="style.css">
+    <script src="js/characters.js" defer></script>
+    <script src="js/app.js" defer></script>
 </head>
-
 <body>
-    <header>
-        <h1>Anime World</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="characters.html">Characters</a>
-            <a href="about.html">About</a>
-        </nav>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+        <a class="site-title" href="index.html">Anime World<span class="brand-mark" aria-hidden="true">✦</span></a>
+        <nav class="site-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="characters.html" aria-current="page">Characters</a><a href="about.html">About</a></nav>
     </header>
-    <main>
-        <section id="characters">
-            <h3>My Favorite Anime Characters</h3>
-            <div class="character">
-                <a href="luffy.html" class="character-card">
-                    <h3>Monkey D. Luffy</h3>
-                    <img src="image/luffy.jpg" alt="Monkey D. Luffy" width="250" height="300">
-                    <p>Captain of the Straw Hat Pirates chasing the One Piece.</p>
-                </a>
-                <a href="itachi.html" class="character-card">
-                    <h3>Itachi Uchiha</h3>
-                    <img src="image/itachi.jpg" alt="Itachi Uchiha" width="250" height="300">
-                    <p>Tragic rogue ninja who sacrificed everything for his village.</p>
-                </a>
-                <a href="hinata.html" class="character-card">
-                    <h3>Hinata Hyuga</h3>
-                    <img src="image/hinata.jpg" alt="Hinata Hyuga" width="250" height="300">
-                    <p>Heir of the Hyuga clan and master of the Byakugan.</p>
-                </a>
-            </div>
-        </section>
+    <main id="main-content" class="content-wrap page-content">
+        <header class="page-heading page-heading-left"><p class="eyebrow">Your favorites</p><h1>Characters</h1><p>A collection of the characters and stories that mean something to you.</p></header>
+        <section class="character-grid" data-character-grid aria-label="Characters"></section>
+        <noscript><p class="empty-state">Enable JavaScript to see the character cards.</p></noscript>
     </main>
+    <footer class="site-footer"><p><a href="about.html">About Anime World</a></p></footer>
 </body>
-
 </html>

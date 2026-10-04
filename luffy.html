@@ -1,221 +1,76 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-    <title>Monkey D. Luffy — My Ideal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A personal reflection on Luffy, freedom, and the lessons I carry with me.">
+    <meta name="theme-color" content="#111318">
+    <title>Monkey D. Luffy | Anime World</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="luffy.css">
+    <script src="js/luffy.js" defer></script>
 </head>
+<body class="luffy-page">
+    <img class="gear-backdrop" src="image/luffy_gear5.gif" alt="" aria-hidden="true" fetchpriority="high">
+    <div class="gear-shade" aria-hidden="true"></div>
+    <div class="gear-clouds" aria-hidden="true"></div>
 
-<body>
-
-    <header>
-        <h1>Anime World</h1>
-
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="characters.html">Characters</a>
-            <a href="about.html">About</a>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header luffy-header">
+        <a class="site-title" href="index.html">Anime World<span class="brand-mark" aria-hidden="true">✦</span></a>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="index.html">Home</a><a href="characters.html" aria-current="page">Characters</a><a href="about.html">About</a>
         </nav>
     </header>
 
-    <main>
-
-        <section class="luffy-hero">
-            <div class="luffy-info">
-
-                <h2>Monkey D. Luffy</h2>
-
-                <p>
-                    My ideal. The person who reminds me to live freely,
-                    smile through difficult moments, protect others,
-                    and never stop chasing my dreams.
-                </p>
-
-            </div>
-
-            <img
-                src="image/luffy.png"
-                alt="Monkey D. Luffy"
-                class="luffy-character">
+    <main id="main-content" class="luffy-main">
+        <section class="luffy-stage" data-arm-stage aria-label="Luffy Gear 5 scene">
+            <img class="luffy-foreground" src="image/Luffy.png" alt="Monkey D. Luffy smiling with his hands together" width="670" height="1191" fetchpriority="high">
+            <button class="arm-hotspot" type="button" data-arm-hotspot aria-label="Stretch Luffy's rubber arm. Drag to reach, or tap for a stretch.">
+                <span class="sr-only">Stretch Luffy's arm</span>
+            </button>
         </section>
 
+        <div class="luffy-story">
+            <header class="luffy-heading">
+                <p class="eyebrow">My favorite pirate</p>
+                <h1>Monkey D. Luffy</h1>
+                <button class="gear-button" type="button" data-gear-trigger>Feel the Gear 5 energy <span aria-hidden="true">✦</span></button>
+            </header>
 
-        <section class="luffy-about">
+            <section class="luffy-note core-value-note" aria-labelledby="core-value-title">
+                <h2 id="core-value-title">Core Value</h2>
+                <p class="core-value">Freedom</p>
+            </section>
+            <section class="luffy-note" aria-labelledby="admire-title">
+                <h2 id="admire-title">Why I Admire Him</h2>
+                <p>Luffy is not just a character I admire. He represents the kind of person I want to become.</p>
+            </section>
+            <section class="luffy-note" aria-labelledby="lesson-title">
+                <h2 id="lesson-title">Greatest Lesson</h2>
+                <p>Losing once does not mean everything is over. As long as I am alive, there are still countless chances to try again.</p>
+            </section>
+            <section class="luffy-note reflection-note" aria-labelledby="reflection-title">
+                <h2 id="reflection-title">My Reflection</h2>
+                <p>Luffy is chasing the One Piece. I am chasing my own dreams.</p>
+            </section>
+        </div>
 
-            <h2>Why Luffy?</h2>
-
-            <p>
-                Luffy is not just a character I admire.
-                He represents the kind of person I want to become.
-            </p>
-
-            <p>
-                I admire the way he lives his life with freedom,
-                courage, and a smile. He does not allow fear to
-                decide his path, and he never gives up on the dreams
-                that matter to him.
-            </p>
-
-            <p>
-                Whenever I think about the person I want to become,
-                I think about Luffy.
-            </p>
-
-        </section>
-
-
-        <section class="luffy-abilities">
-
-            <h2>What I Learn From Luffy</h2>
-
-            <div class="ability">
-
-                <h3>Never Give Up</h3>
-
-                <p>
-                    Whenever I feel sad because I lost or failed,
-                    I remember that losing once does not mean
-                    everything is over.
-                </p>
-
-                <p>
-                    As long as I am alive, there are still
-                    countless chances to try again.
-                </p>
-
-            </div>
-
-
-            <div class="ability">
-
-                <h3>Keep Smiling</h3>
-
-                <p>
-                    I want to have a smile like Luffy.
-                    Not because life is always easy,
-                    but because I don't want difficult moments
-                    to take away my happiness.
-                </p>
-
-                <p>
-                    I want to learn from the past without living
-                    in the past. I want to enjoy the present
-                    and experience every moment of my life.
-                </p>
-
-            </div>
-
-
-            <div class="ability">
-
-                <h3>Protect Others</h3>
-
-                <p>
-                    Luffy reminds me that strength is not only
-                    about being powerful.
-                </p>
-
-                <p>
-                    I want to become someone who protects the
-                    people who are weaker, stands beside those
-                    who need help, and uses strength to help
-                    rather than hurt others.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <section class="luffy-dream">
-
-            <h2>Freedom & Dreams</h2>
-
-            <p>
-                Luffy lives his life freely, and that is something
-                I want for myself too.
-            </p>
-
-            <p>
-                We only get one life.
-                I don't want to spend mine being controlled by fear.
-            </p>
-
-            <p>
-                I want to explore, experience, enjoy,
-                take chances, and live in the present.
-            </p>
-
-            <p>
-                And when it comes to my dreams,
-                I want to have the same belief Luffy has.
-            </p>
-
-            <p>
-                If I have a dream, I will chase it.
-                I will not decide that something is impossible
-                simply because it is difficult.
-            </p>
-
-            <p>
-                Luffy says he will become the Pirate King,
-                so he keeps moving toward it.
-                I want to do the same with my own dreams.
-            </p>
-
-            <p>
-                Nothing is impossible just because it is difficult.
-                I will keep moving toward my goals without fear.
-            </p>
-
-        </section>
-
-
-        <section class="luffy-video">
-
-            <h2>My Journey</h2>
-
-            <p>
-                Luffy is chasing the One Piece.
-                I am chasing my own dreams.
-            </p>
-
-            <p>
-                His journey reminds me that I should keep moving,
-                even when I fail, even when I fall,
-                and even when I feel afraid.
-            </p>
-
-            <p>
-                I may lose.
-                I may fail.
-                I may fall.
-            </p>
-
-            <p>
-                But as long as I am alive,
-                there are still chances.
-            </p>
-
-            <p>
-                So I will smile,
-                live in the present,
-                protect the people I care about,
-                live freely,
-                and keep chasing my dreams.
-            </p>
-
-            <iframe
-                width="560"
-                height="315"
-                src="https://youtube.com/embed/4Rb0PRxJcnM?si=2Ul5gPwVJT9DbCU5"
-                title="Luffy Video"
-                allowfullscreen>
-            </iframe>
-
-        </section>
-
+        <svg class="arm-overlay" data-arm-overlay aria-hidden="true" focusable="false">
+            <path class="arm-outline" data-overlay-outline></path>
+            <path class="arm-sleeve" data-overlay-sleeve></path>
+            <path class="arm-skin" data-overlay-skin></path>
+            <path class="arm-cuff-outline" data-overlay-cuff-outline></path>
+            <path class="arm-cuff" data-overlay-cuff></path>
+            <circle class="arm-root" data-overlay-root r="21"></circle>
+            <g class="arm-fist" data-overlay-fist>
+                <path class="fist-outline" d="M-12 -18 Q-4 -26 8 -22 L31 -20 Q43 -18 50 -7 L56 1 Q52 8 45 7 Q44 18 34 17 Q28 24 18 18 Q10 22 2 13 L-12 8 Z"></path>
+                <path class="fist-detail" d="M7 -11 Q15 -15 23 -12 M15 -3 Q25 -7 34 -3 M19 6 Q27 3 35 6"></path>
+                <path class="fist-thumb" d="M-5 3 Q4 -4 12 2 L19 11 Q16 18 9 15 L-1 10 Z"></path>
+            </g>
+        </svg>
     </main>
 
+    <footer class="site-footer luffy-footer"><p>Anime World · Stories that stay with you</p></footer>
 </body>
 </html>
